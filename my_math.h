@@ -8,4 +8,11 @@
 * Purpose           : mathematical library functions
 *
 *******************************************************************************/
+/**
+ * power function
+ *
+ * param:   int i, integer to raised
+ *          int p, the power
+ * return:  int, integer i to the power p on success, else -1
+ **/
 int my_pow(int i, int p);

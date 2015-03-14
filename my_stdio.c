@@ -9,7 +9,7 @@
  *
  *******************************************************************************/
 #include <unistd.h>
-#include "error.h"
+#include "my_error.h"
 #include "my_string.h"
 #include "my_stdio.h"
 #include "my_libc.h"

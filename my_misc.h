@@ -8,5 +8,21 @@
 * Purpose           :
 *
 *******************************************************************************/
-int my_ls(int out, char *str);
-int my_wc(int in);
+/**
+ * ls execution.
+ * param:   char *dir
+ *          char full path to the directory
+ * return:  int is_it_ok?i
+ *          0 if it fails
+ *          1 if it success
+ **/
+int my_ls(char *dir);
+
+/**
+ * wc execution.
+ * param:   void 
+ * return:  int is_it_ok?i
+ *          0 if it fails
+ *          1 if it success
+ **/
+int my_wc(void);

@@ -8,13 +8,17 @@
  * Purpose           :
  *
  *******************************************************************************/
-#include "misc.h"
+#include "my_misc.h"
 #include <unistd.h>
 
-int my_ls(int out, char *str){
-    return execlp("ls", "ls", 0);
+int my_ls(char *dir){
+    if ((execlp("ls", dir, (char *)NULL))==-1)
+      return 0;
+    return 1;
 }
 
-int my_wc(int in){
-    return execlp("wc", "wc", 0);
+int my_wc(void){
+    if ((execlp("wc", "wc", (char *)NULL))==-1)
+      return 0;
+    return 1;
 }

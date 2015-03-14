@@ -32,7 +32,7 @@
  **/
 #include "my_stdio.h"
 #include "my_string.h"
-#include "error.h"
+#include "my_error.h"
 #include "my_math.h"
 #include <stdarg.h>
 

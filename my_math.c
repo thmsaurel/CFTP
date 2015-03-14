@@ -9,13 +9,9 @@
  *
  *******************************************************************************/
 #include "my_math.h"
-/**
- * power function
- *
- * param:   int i, integer to raised
- *          int p, the power
- * return:  int, integer i to the power p on success, else -1
- **/
+/* Something wrong with in the second case.
+ * You will never return an integer, except when i=1
+*/
 int my_pow(int i, int p){
         int a = 1;
         if(p > 0){

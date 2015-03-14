@@ -1,0 +1,6 @@
+#CFTP
+Client/Server FTP
+
+## Done
+* [x] translate norm in english
+* [x] rename all files in my_<filename>.[c,h]
