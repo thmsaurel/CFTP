@@ -36,6 +36,9 @@
 #include "my_math.h"
 #include <stdarg.h>
 
+/*
+ * Global const for printf.
+*/
 int G_flags_size = 5;
 char G_flags[5] = {
     '-', '+', ' ', '#', '0'
@@ -79,9 +82,6 @@ int print_specifier(char c, va_list ap, char f, int w, int p){
     return 0;
 }
 
-/**
- * This is the main function for printf
- **/
 int my_printf(char *format, ...){
     int text_size = my_strlen(format), width = 0, precision = 0;
     va_list ap;

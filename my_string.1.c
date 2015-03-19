@@ -12,12 +12,6 @@
 #include "my_stdio.h"
 #include "my_string.h"
 
-/**
- * transform string's characters into upper charaters
- *
- * param:   char *str, string
- * return:  return a upper string
- **/
 char * my_strcapitalize(char *str){
     char *string = malloc(my_strlen(str) * sizeof(char));
     for(int i = 0; i < my_strlen(str); i++){

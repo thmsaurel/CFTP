@@ -13,22 +13,10 @@
 #include "my_string.h"
 #include "my_stdio.h"
 #include "my_libc.h"
-/**
- * output a character or word to a stream
- *
- * param:   char c, the character to write
- * return:  return 1 on success
- **/
 int my_putchar(char c){
     return return_verification_int(write(1, &c, sizeof(char)), 1);
 }
 
-/**
- * output a line to a stream
- *
- * param:   char *str, the line to write
- * return:  0 on success
- **/
 int my_puts(char *str){
     for(int i = 0; i < my_strlen(str); i++){
         my_putchar(str[i]);
@@ -36,15 +24,6 @@ int my_puts(char *str){
     return 0;
 }
 
-/**
- * output a number on a base
- *
- * param:   int i, the integer to write
- *          int b, the base to the character
- *          int u, 1 if upper, 0 else
- *          char f, the flag character
- * return:  0 on success, else -1
- **/
 int my_putnbr_base(int i, int b, int u, char f, int w){
     int result = verify_inf_size(b, 37);
     if(result != 0){return -1;}
@@ -65,12 +44,6 @@ int my_putnbr_base(int i, int b, int u, char f, int w){
     return 0;
 }
 
-/**
- * output a number on base 10
- *
- * param:   int i, the integer to write
- * return:  0 on success, else -1
- **/
 int my_putnbr(int i, char f, int w){
     return my_putnbr_base(i, 10, 0, f, w);
 }
