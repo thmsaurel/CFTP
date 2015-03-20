@@ -13,3 +13,5 @@ FTP Client/Server
     * my_string.c, my_string.1.c & my_string.h done
     * my_stdio.c, my_stdio.1.c & my_stdio.h not finished yet, but their is problem.
 * [ ] complete my_printf functions
+* [x] translate norm in english
+* [x] rename all files in my_<filename>.[c,h]
