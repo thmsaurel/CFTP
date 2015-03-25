@@ -26,7 +26,11 @@ char * my_strcat(char *s1, char *s2){
 
 char * my_strncat(char *s1, char *s2, int n){
     int size = my_strlen(s1);
-    char *tmp = malloc((size + n) * sizeof(char));
+    char *tmp;
+    if ((tmp = (char *)malloc((size+n)*sizeof(char)))==NULL){
+      my_puts("ERROR: malloc failed\n");
+      return NULL;
+    }
     for (int i=0; i < size + n; i++){
         if (i < size){
             tmp[i] = s1[i];
@@ -36,6 +40,7 @@ char * my_strncat(char *s1, char *s2, int n){
     }
     tmp[size + n] = '\0';
     s1 = tmp;
+    free(tmp);
     return s1;
 }
 
@@ -44,7 +49,11 @@ char * my_strcpy(char *dest, char *src){
 }
 
 char * my_strncpy(char *dest, char *src, int n){
-    char *tmp = malloc(n * sizeof(char));
+    char *tmp;
+    if ((tmp = (char *)malloc(n*sizeof(char)))==NULL){
+      my_puts("ERROR: malloc failed\n");
+      return NULL;
+    }
     for (int i=0; i < n; i++){
         if(i < my_strlen(src)){
             tmp[i] = src[i];
@@ -53,5 +62,6 @@ char * my_strncpy(char *dest, char *src, int n){
         }
     }
     dest = tmp;
+    free(tmp);
     return dest;
 }

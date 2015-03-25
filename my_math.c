@@ -9,16 +9,10 @@
  *
  *******************************************************************************/
 #include "my_math.h"
-/* Something wrong with in the second case.
- * You will never return an integer, except when i=1
-*/
+
 int my_pow(int i, int p){
-        int a = 1;
-        if(p > 0){
-                for(int j=0;j<p;j++){a = a * i;}
-        } else if(p < 0){
-                for(int j=p;j>0;j--){a = a / i;}
-        }
-        return a;
+    int a = 1;
+    for(int j=0;j<p;j++){a = a * i;}
+    return a;
 }
 

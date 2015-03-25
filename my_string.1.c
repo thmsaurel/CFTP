@@ -13,7 +13,11 @@
 #include "my_string.h"
 
 char * my_strcapitalize(char *str){
-    char *string = malloc(my_strlen(str) * sizeof(char));
+    char *string;
+    if ((string=(char *)malloc(my_strlen(str)*sizeof(char)))==NULL){
+      my_puts("ERROR: malloc failed\n");
+      return 0;
+    }
     for(int i = 0; i < my_strlen(str); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
             string[i] = 'A' + str[i] - 'a';
