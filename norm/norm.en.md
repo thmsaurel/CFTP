@@ -1,4 +1,8 @@
 # C Norm
+
+## Coding rules
+A knowledge database to follow some good coding rules is available [here](https://www.securecoding.cert.org/confluence/display/c/CERT+C+Coding+Standard).
+
 ## Classic Rules
 * A line, including comments, doesn't be greater than 80 columns.
 * One instruction by line.

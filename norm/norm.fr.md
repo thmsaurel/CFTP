@@ -1,4 +1,8 @@
 # Norme C
+
+## Règles de codage
+Une base de connaissances pour suivre quelques bonne règles de codage en C est disponible [ici](https://www.securecoding.cert.org/confluence/display/c/CERT+C+Coding+Standard).
+
 ## Règles classiques
 * Une ligne, y compris pour les commentaires, ne doit pas excéder 80 colonnes.
 * Une seule instruction par ligne.
