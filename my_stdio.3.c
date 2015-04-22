@@ -3,7 +3,7 @@
  * File Name         : my_stdio.3.c
  * Created By        : Thomas Aurel & Loïc Delaveau
  * Creation Date     : April 22th, 2015
- * Last Change       : April 22th, 2015 at 01:57:35
+ * Last Change       : April 22th, 2015 at 21:05:38
  * Last Changed By   : Thomas Aurel
  * Purpose           :
  *
@@ -18,6 +18,16 @@ charlist addItem(char c, charlist list){
         my_puts("Error: on createList()");
         return 0;
     }
+    if(list != NULL){
+        charlist lastlist = lastItem(list);
+        lastlist->next = newlist;
+    } else {
+        list = newlist;
+    }
+    return list;
+}
+
+charlist concatItem(charlist list, charlist newlist){
     if(list != NULL){
         charlist lastlist = lastItem(list);
         lastlist->next = newlist;
@@ -45,12 +55,11 @@ charlist lastItem(charlist list){
     return list;
 }
 
-charlist concatItem(charlist list, charlist newlist){
-    if(list != NULL){
-        charlist lastlist = lastItem(list);
-        lastlist->next = newlist;
-    } else {
-        list = newlist;
+int listSize(charlist list){
+    int i = 0;
+    while(list != NULL){
+        i += 1;
+        list = list->next;
     }
-    return list;
+    return i;
 }

@@ -3,7 +3,7 @@
 * File Name         : my_stdio.h
 * Created By        : Thomas Aurel
 * Creation Date     : January 15th, 2015
-* Last Change       : April 22th, 2015 at 01:57:35
+* Last Change       : April 22th, 2015 at 21:05:38
 * Last Changed By   : Thomas Aurel
 * Purpose           : standard input/output library functions
 *
@@ -33,18 +33,9 @@ int my_puts(char *str);
 /* my_stdio.1.c
  * for number functions
  */
-
-/**
- * convert a number (int or double) into a string
- *
- * param:   double d, the integer or double to convert
- * param:   int b, the number base
- * return:  the char* on success
- **/
 char* convert_ntos(double d, int b);
-
-int my_putdouble(double f, int u, char flag, int w, int p);
-int my_putdouble_base(double f, int b, int u, char flag, int w, int p);
+int my_putdouble(double f);
+int my_putdouble_base(double f, int b);
 
 /**
  * output a number on base 10
@@ -99,7 +90,7 @@ int print_flag(char c);
 int int_width(int i, int b, int w);
 
 /* my_stdio.3.c
- * miscs functions for number functions.
+ * miscs functions about charlist
  */
 struct charlist{
     char value;
@@ -110,3 +101,23 @@ charlist addItem(char c, charlist list);
 charlist concatItem(charlist list, charlist newlist);
 charlist createItem(char c);
 charlist lastElem(charlist list);
+int listSize(charlist list);
+
+/* my_stdio.4
+ * miscs functions about charlist 2
+ */
+char * convert_cltos(charlist list);
+
+/* my_stdio.5.c
+ * convert type to charlist
+ */
+
+/**
+ * convert a number (int or double) into a string
+ *
+ * param:   double d, the integer or double to convert
+ * param:   int b, the number base
+ * return:  charlist on success
+ **/
+charlist convert_itocl(int i, int b);
+charlist convert_dtocl(double d, int b);
