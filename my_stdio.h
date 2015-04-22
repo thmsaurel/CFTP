@@ -3,14 +3,16 @@
 * File Name         : my_stdio.h
 * Created By        : Thomas Aurel
 * Creation Date     : January 15th, 2015
-* Last Change       : March  2th, 2015 at 15:00:11
+* Last Change       : April 22th, 2015 at 01:57:35
 * Last Changed By   : Thomas Aurel
 * Purpose           : standard input/output library functions
 *
 *******************************************************************************/
 #include <stdarg.h>
 
-/* my_stdio.c */
+/* my_stdio.c
+ * for default function
+ * */
 
 /**
  * output a character or word to a stream
@@ -21,25 +23,6 @@
 int my_putchar(char c);
 
 /**
- * output a number on base 10
- *
- * param:   int i, the integer to write
- * return:  0 on success, else -1
- **/
-int my_putnbr(int i, char f, int w);
-
-/**
- * output a number on a base
- *
- * param:   int i, the integer to write
- *          int b, the base to the character
- *          int u, 1 if upper, 0 else
- *          char f, the flag character
- * return:  0 on success, else -1
- **/
-int my_putnbr_base(int i, int b, int u, char f, int w);
-
-/**
  * output a line to a stream
  *
  * param:   char *str, the line to write
@@ -47,10 +30,40 @@ int my_putnbr_base(int i, int b, int u, char f, int w);
  **/
 int my_puts(char *str);
 
-int hashspace_flag(char f, int b, int u);
+/* my_stdio.1.c
+ * for number functions
+ */
 
-/* my_stdio.1.c */
+/**
+ * convert a number (int or double) into a string
+ *
+ * param:   double d, the integer or double to convert
+ * param:   int b, the number base
+ * return:  the char* on success
+ **/
+char* convert_ntos(double d, int b);
 
+int my_putdouble(double f, int u, char flag, int w, int p);
+int my_putdouble_base(double f, int b, int u, char flag, int w, int p);
+
+/**
+ * output a number on base 10
+ *
+ * param:   int i, the integer to write
+ * return:  0 on success, else -1
+ **/
+int my_putnbr(int i);
+
+/**
+ * output a number on a base
+ *
+ * param:   int i, the integer to write
+ *          int b, the base to the character
+ * return:  0 on success, else -1
+ **/
+int my_putnbr_base(int i, int b);
+
+/* my_stdio.2.c */
 /**
  * This is the main function for printf. Print a string on stdout that contain:
  *  -Characters
@@ -71,7 +84,7 @@ int my_printf(char *format, ...);
  * flag, width and precision
  *
  * param:   char c, va_list ap, char f, int w, int p
- *          char specifier, va_list argument_pointer, char flag, int width, 
+ *          char specifier, va_list argument_pointer, char flag, int width,
  *              int precision
  * return: Your mother...
  **/
@@ -85,6 +98,15 @@ int print_flag(char c);
  **/
 int int_width(int i, int b, int w);
 
-/* my_stdio.2.c */
-int my_putdouble(double f, int u, char flag, int w, int p);
-int my_putdouble_base(double f, int b, int u, char flag, int w, int p);
+/* my_stdio.3.c
+ * miscs functions for number functions.
+ */
+struct charlist{
+    char value;
+    charlist *next;
+};
+
+charlist addItem(char c, charlist list);
+charlist concatItem(charlist list, charlist newlist);
+charlist createItem(char c);
+charlist lastElem(charlist list);

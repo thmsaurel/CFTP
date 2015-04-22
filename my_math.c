@@ -3,8 +3,8 @@
  * File Name         : my_math.c
  * Created By        : Thomas Aurel
  * Creation Date     : January  9th, 2015
- * Last Change       : February 23th, 2015 at 23:41:01
- * Last Changed By   : Thomas Aurel
+ * Last Change       : April  8th, 2015 at 23:23:37
+ * Last Changed By   : Unknow Maintainer
  * Purpose           :
  *
  *******************************************************************************/
