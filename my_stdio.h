@@ -3,7 +3,7 @@
 * File Name         : my_stdio.h
 * Created By        : Thomas Aurel
 * Creation Date     : January 15th, 2015
-* Last Change       : April 22th, 2015 at 21:31:25
+* Last Change       : April 22th, 2015 at 21:37:19
 * Last Changed By   : Thomas Aurel
 * Purpose           : standard input/output library functions
 *
@@ -91,10 +91,10 @@ int int_width(int i, int b, int w);
 /* my_stdio.3.c
  * miscs functions about charlist
  */
-struct charlist{
+typedef struct charlist{
     char value;
-    charlist *next;
-};
+    struct charlist *next;
+} charlist;
 
 charlist addItem(char c, charlist list);
 charlist concatItem(charlist list, charlist newlist);
