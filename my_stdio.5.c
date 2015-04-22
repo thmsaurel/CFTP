@@ -3,7 +3,7 @@
  * File Name         : my_stdio.5.c
  * Created By        : Thomas Aurel
  * Creation Date     : April 22th, 2015
- * Last Change       : April 22th, 2015 at 21:05:38
+ * Last Change       : April 22th, 2015 at 21:34:58
  * Last Changed By   : Thomas Aurel
  * Purpose           :
  *
@@ -11,6 +11,7 @@
 #include "my_stdio.h"
 
 charlist convert_itocl(int i, int b){
+    charlist* nbr = NULL;
     if (i < 0){
         addItem('-', nbr);
         i = (-1) * i;
