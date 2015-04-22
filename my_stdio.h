@@ -3,7 +3,7 @@
 * File Name         : my_stdio.h
 * Created By        : Thomas Aurel
 * Creation Date     : January 15th, 2015
-* Last Change       : April 22th, 2015 at 21:05:38
+* Last Change       : April 22th, 2015 at 21:31:25
 * Last Changed By   : Thomas Aurel
 * Purpose           : standard input/output library functions
 *
@@ -33,7 +33,6 @@ int my_puts(char *str);
 /* my_stdio.1.c
  * for number functions
  */
-char* convert_ntos(double d, int b);
 int my_putdouble(double f);
 int my_putdouble_base(double f, int b);
 
