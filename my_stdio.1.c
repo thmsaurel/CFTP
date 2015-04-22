@@ -3,7 +3,7 @@
  * File Name         : my_stdio.1.c
  * Created By        : Thomas Aurel
  * Creation Date     : January 18th, 2015
- * Last Change       : April 22th, 2015 at 21:05:38
+ * Last Change       : April 22th, 2015 at 21:43:06
  * Last Changed By   : Thomas Aurel
  * Purpose           : standard input/output library functions (second file)
  *

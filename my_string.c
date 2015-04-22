@@ -3,7 +3,7 @@
  * File Name         : my_string.c
  * Created By        : Thomas Aurel
  * Creation Date     : January 15th, 2015
- * Last Change       : January 18th, 2015 at 23:37:22
+ * Last Change       : April 22th, 2015 at 22:09:15
  * Last Changed By   : Thomas Aurel
  * Purpose           : string specific functions
  *

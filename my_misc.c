@@ -3,13 +3,15 @@
  * File Name         : misc.c
  * Created By        : Thomas Aurel
  * Creation Date     : March 10th, 2015
- * Last Change       : March 10th, 2015 at 17:13:33
+ * Last Change       : April 22th, 2015 at 23:10:55
  * Last Changed By   : Thomas Aurel
  * Purpose           :
  *
  *******************************************************************************/
-#include "my_misc.h"
 #include <unistd.h>
+#include "my_misc.h"
+#include "my_string.h"
+#include "my_math.h"
 
 int my_ls(char *dir){
     if ((execlp("ls", dir, (char *)NULL))==-1)
@@ -22,3 +24,12 @@ int my_wc(void){
       return 0;
     return 1;
 }
+
+int my_stoi(char *str){
+    int result = 0;
+    for(int i = 0; i < my_strlen(str); i++){
+        result += my_pow((int) str[i], my_strlen(str) - i);
+    }
+    return result;
+}
+

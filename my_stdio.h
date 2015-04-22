@@ -3,7 +3,7 @@
 * File Name         : my_stdio.h
 * Created By        : Thomas Aurel
 * Creation Date     : January 15th, 2015
-* Last Change       : April 22th, 2015 at 21:37:19
+* Last Change       : April 22th, 2015 at 23:10:55
 * Last Changed By   : Thomas Aurel
 * Purpose           : standard input/output library functions
 *
@@ -78,7 +78,7 @@ int my_printf(char *format, ...);
  *              int precision
  * return: Your mother...
  **/
-int print_specifier(char c, va_list ap, char f, int w, int p);
+char * print_specifier(char s, va_list ap, char *f, char *w, char *p);
 int print_flag(char c);
 /**
  * Calculate and print a string of '0' according to the width specified in the printf funtion.
@@ -96,16 +96,19 @@ typedef struct charlist{
     struct charlist *next;
 } charlist;
 
-charlist addItem(char c, charlist list);
-charlist concatItem(charlist list, charlist newlist);
-charlist createItem(char c);
-charlist lastElem(charlist list);
-int listSize(charlist list);
+charlist * addItem(char c, charlist *list);
+charlist * concatItem(charlist *list, charlist *newlist);
+charlist * createItem(char c);
+charlist * lastItem(charlist *list);
+int listSize(charlist *list);
 
 /* my_stdio.4
  * miscs functions about charlist 2
  */
-char * convert_cltos(charlist list);
+char * convert_cltos(charlist *list);
+charlist * apply_f(charlist *list, char *f);
+charlist * apply_w(charlist *list, char *w, char *f);
+charlist * apply_p(charlist *list, char *p);
 
 /* my_stdio.5.c
  * convert type to charlist
@@ -118,5 +121,6 @@ char * convert_cltos(charlist list);
  * param:   int b, the number base
  * return:  charlist on success
  **/
-charlist convert_itocl(int i, int b);
-charlist convert_dtocl(double d, int b);
+charlist * convert_itocl(int i, int b);
+charlist * convert_dtocl(double d, int b);
+charlist * convert_stocl(char *s);
