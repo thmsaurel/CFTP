@@ -2,16 +2,17 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<string.h>
-#include <sys/socket.h>
+#include<sys/socket.h>
 #include<sys/types.h>
 #include<arpa/inet.h>
 
 int main (int argc, char ** argv)
 {
 	pid_t pid;
-	char * msg;
-	char saisie[1024];
-	int sd, bd, st, lenMsg, co, conv;
+	char * msg="Bonjour";
+	//char saisie[1024];
+	int sd, bd, st, lenMsg, co;
+    //int conv;
 	struct in_addr ip;
 	struct sockaddr_in my_sockaddr;
 
@@ -21,7 +22,7 @@ int main (int argc, char ** argv)
 		exit(EXIT_FAILURE);
 	}
 
-	conv = inet_pton(AF_INET, argv[1], ip);
+	//conv = inet_pton(AF_INET, argv[1], &ip);
 	
 	/*On remplit la structure pour bind)*/
 	my_sockaddr.sin_family= AF_INET;
@@ -63,7 +64,7 @@ int main (int argc, char ** argv)
 
 	//st = sendto(sd, "e", sizeof(char), 0, (struct sockaddr*)&my_sockaddr, sizeof(my_sockaddr));
 
-	msg = gets(saisie);
+	//msg = gets(saisie);
 	while (strcmp(msg, "\0"))
 	{
 		/*On écrit ds le socket*/
@@ -76,7 +77,7 @@ int main (int argc, char ** argv)
 			exit(EXIT_FAILURE);
 		}
 
-		msg = gets(saisie);
+		//msg = gets(saisie);
 	}	
 
 	return EXIT_SUCCESS;
