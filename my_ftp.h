@@ -7,7 +7,10 @@ last changes by : ldelaveau
 ******************************************************************************/
 
 /*
- * Try to lauch the ftp client with the IP and username given.
+ * Try to lauch the ftp client with the IP and username given in
+ * the mode desribe by an int value:
+ *  - 0 for passive mode
+ *  - 1 for active mode (recommended)
  * By Default, Anonymous user is authorized
  *
  * param:    char *IP adress, char *username
@@ -20,12 +23,19 @@ last changes by : ldelaveau
  *           .
 */ 
 
-int lauch_ftp_client(char * ip, char *login);
+int lauch_ftp_client(char * ip, char *login, int mode);
 
 /*
- * Try to lauch the ftp server. Port is not mandatory (def:25).
+ * Try to lauch the ftp server. Ports are not mandatory.
+ * Here too you indicate the mode with an int:
+ *  - 0 for passive mode
+ *  - 1 for active mode (recommended)
+
+ * To use default port, give 0.
+ * Default ports: 20: Data
+ *                21: Commands
  *
- * param:    int port, if you don't want to use the default
+ * param:    int portData, 
  * return:   int 0 if it success
  *           Instead, the function returns:
  *           -1 : Can't open socket 
@@ -34,4 +44,4 @@ int lauch_ftp_client(char * ip, char *login);
  *           .
  *           .
 */ 
-int lauch_ftp_server(int port);
+int lauch_ftp_server(int port, int mode);
