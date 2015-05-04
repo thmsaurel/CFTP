@@ -3,7 +3,7 @@
  * File Name         : my_stdio.2.c
  * Created By        : Thomas Aurel
  * Creation Date     : February 28th, 2015
- * Last Change       : April 23th, 2015 at 00:32:12
+ * Last Change       : April 28th, 2015 at 23:23:45
  * Last Changed By   : Thomas Aurel
  * Purpose           : standard input/output library functions
  *
@@ -63,7 +63,7 @@ char G_specifier[11] = {
 
 char * print_specifier(char s, va_list ap, char *f, char *w, char *p){
     charlist *result = NULL;
-    char *str;
+    char *str = NULL;
     if (s == '%' || s == 'c'){
         result = addItem((s == '%' ? '%' : (char) va_arg(ap, int)), result);
     } else if(s == 's'){
