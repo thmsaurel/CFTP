@@ -10,10 +10,7 @@ last changes by : ldelaveau
 #include<arpa/inet.h>
 #include<stdlib.h>
 #include"my_stdio.h"
-/*
- * Socket struct addr initialized
-*/
-  struct sockaddr_in my_sockaddr;
+#include"my_string.h"
 
 /*
  * This function will try to open a connection the the host 
@@ -23,20 +20,19 @@ last changes by : ldelaveau
  *  - 1: SOCK_DGRAM  (UDP)
  *  - 2: SOCK_SEQPACKET (see man 3 socket)
  *
- * param:    char *IP adress, short port, int type
- * return:   int socketDescriptor if it success
- *           Instead, the function returns:
+ * param:    char *IP adress, short port, int type, struct *sockaddr_in
+ * return:   int socketDescriptor if it success and the sockaddr_in structure
+ *           is filled correctly. Instead, the function returns:
  *           -1 : Connection time out
  *           -2 : wrong username
  *           .
  *           .
  *           .
 */
-int my_init_co(char *IP, short port, int type);
+int my_init_co(char *IP, short port, int type, struct sockaddr_in *my_sockaddr);
 
 /*
- * Send message in a packet by a opened socket.
- * Others informations are stored in sockaddr_in structure defined
+ * Send message in a packet by a opened socket with sockaddr_in structure info
  * in this file.
  * param:    int socket, char *msg (use struct sockaddr_in my_sockaddr)
  * return:   int 0 if it success
@@ -47,4 +43,4 @@ int my_init_co(char *IP, short port, int type);
  *           .
  *           .
 */
-int my_send_packet(int socket, char *msg);
+int my_send_packet(int socket, char *msg, struct sockaddr_in *my_sockaddr);

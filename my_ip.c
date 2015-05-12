@@ -7,10 +7,14 @@ last changes by : ldelaveau
 purpose         :My Internet Protocol set of functions
 ******************************************************************************/
 #include"my_ip.h"
-int my_init_co(char *IP, short port, int type){
+
+int my_init_co(char *IP, short port, int type, struct sockaddr_in *my_sockaddr)
+{
   int res=0, sockDes=-1;
   struct in_addr ip;
+  struct sockaddr_in sock;
 
+  my_sockaddr = &sock;
   if(port < 1000 || port > 65535){
     my_puts("Warn: Given port out of range\n");
     exit(0);
@@ -20,9 +24,9 @@ int my_init_co(char *IP, short port, int type){
     my_puts("inet_pton failed\n");
     exit(-1);
   }
-  my_sockaddr.sin_family= AF_INET;
-  my_sockaddr.sin_port= htons(port);
-  my_sockaddr.sin_addr= ip;
+  sock.sin_family= AF_INET;
+  sock.sin_port= htons(port);
+  sock.sin_addr= ip;
   sockDes=socket(AF_INET, type, 0);
   if(sockDes < 0){
     my_puts("ERROR: socket fails\n");
@@ -40,4 +44,17 @@ int my_init_co(char *IP, short port, int type){
   }
 
   return sockDes;
+}
+
+int my_send_packet(int socket, char *msg, struct sockaddr_in *my_sockaddr)
+{
+  int lenMsg=0, res = -1;
+
+  lenMsg = my_strlen(msg);
+  if(lenMsg < 0){
+    my_puts("ERROR: in my_send_packet -> my_strlen return 0 or less\n");
+    exit(-1);
+  }
+  res = sendto(socket, msg, lenMsg*sizeof(char), 0, (struct sockaddr*)my_sockaddr, sizeof(my_sockaddr));
+  return res;
 }

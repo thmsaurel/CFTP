@@ -14,7 +14,8 @@ int main (int argc, char ** argv)
 	int sd, bd, st, lenMsg, co;
     //int conv;
 	struct in_addr ip;
-	struct sockaddr_in my_sockaddr;
+	struct sockaddr_in *sock, my_sockaddr;
+    sock = &my_sockaddr;
 
 	if (argc != 3)
 	{
