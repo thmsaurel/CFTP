@@ -9,6 +9,7 @@
  *
  *******************************************************************************/
 #include <stdlib.h>
+#include <unistd.h>
 #include "my_stdio.h"
 #include "my_string.h"
 
@@ -40,4 +41,17 @@ int my_strncmp(char *s1, char *s2, int n){
         i++;
     }
     return i-n;
+}
+
+char *gets(char *string, int size){
+    int res =0;
+
+    while (res == 0)
+        res = read(0, string, size-1);
+    if (res < 0){
+      my_puts("Error gets: problem while reading stdin\n");
+      return NULL;
+    }
+    string[res+1]='\0';
+    return string;
 }
