@@ -55,6 +55,6 @@ int my_send_packet(int socket, char *msg, struct sockaddr_in *my_sockaddr)
     my_puts("ERROR: in my_send_packet -> my_strlen return 0 or less\n");
     exit(-1);
   }
-  res = sendto(socket, msg, lenMsg*sizeof(char), 0, (struct sockaddr*)my_sockaddr, sizeof(my_sockaddr));
+  res = send(socket, msg, lenMsg*sizeof(char), 0);
   return res;
 }

@@ -55,15 +55,37 @@ int lauch_ftp_client(char * ip, char *login, int mode);
 int lauch_ftp_server(int port, int mode);
 
 /*
- * Create FTP Command line and send commands to the server defined by:
- *      int socket
- *      struct sockaddr_in *ipInfo
+ * Initialize the ftp connection in active mode.
+ * First, the client initiates the control channel (or command channel) from
+ * a random port to the server port 20 (or the specific one defined by the user)
+ * Then an authentication is done. If it failes, the command channel is closed.
+ * For more informations:
+ *  -https://en.wikipedia.org/wiki/File_Transfer_Protocol#Communication_and_data_transfer
+ *  -http://www.ietf.org/rfc/rfc959.txt
  *
- * Type "exit" to quit the shell.
+ * param: char *ip          => ip of the server
+ *        char *login       => for the authentication 
+ *          NOTE: pwd is asked directly to the user
+ *        int *cmdDesSock   => ptr to the socket descriptor of the control
+ *          channel
+ *        struct sockaddr_in *p_ipInfo => ptr to the connection informations
+ *          (ip, port, type of connection).
  *
- * params:    int socket, struct sockaddr_in *ipInfo
- * return:    int is_it_ok?, with 
- *              0  => OK
- *              -1 => Not Ok
- */
-int launch_ftp_cli(int socket, struct sockaddr_in *ipInfo);
+*/
+int ftp_client_active(char *ip, char *login, int *cmdDesSock, struct sockaddr_in *p_ipInfo);
+
+/*
+ * Send a command/response from a client to a server.
+ *
+ * params: 
+ *        int sockDes                   => Socket descriptor
+ *        char *command                 => Command or response to send
+ *        char *input                   => Optional input string
+ *        struct sockaddr_in *p_ipInfo  => Remote host IP info.
+ * return: 
+ *        int result                    => is it ok?
+ *                                      0 YES
+ *                                     -1 NO
+*/
+
+int ftp_send_cmd(int sockDes, char *command, char *input, struct sockaddr_in *p_ipInfo);
