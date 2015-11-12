@@ -1,5 +1,5 @@
 /******************************************************************************
-name            : my_ftp.h
+name            : my_ftp.c
 date            : 14 May 2015 
 created by      : ldelaveau
 last modified   : 14 May 2015 04:33:49 PM
@@ -25,7 +25,7 @@ int lauch_ftp_client(char *ip, char *login, int mode){
     my_puts("Passive mode for ftp not yet implemented.");
     my_puts("Swtich to active mode\n");
     res = ftp_client_active(ip,login,cmdDesSock,p_ipInfo);
-    }
+   }
 
   if((pid=fork()) < 0){
     my_puts("Error: can't initialize ftp shell\n");
@@ -38,7 +38,7 @@ int lauch_ftp_client(char *ip, char *login, int mode){
         if (res != 0)
           my_puts("Error in lauch_ftp_cli: failed to send packet\n");
         msg=my_gets(input, FTP_MAX_SIZE_CMD);
-    }
+   }
   free(input);
   exit(0);
   }

@@ -4,7 +4,7 @@ date            :  4 May 2015
 created by      : ldelaveau
 last modified   :  4 May 2015 10:26:57 PM
 last changes by : ldelaveau
-purpose         :My Internet Protocol set of functions
+purpose         : Internet Protocol set of functions
 ******************************************************************************/
 #include"my_ip.h"
 
@@ -16,7 +16,7 @@ int my_init_co(char *IP, short port, int type, struct sockaddr_in *my_sockaddr)
 
   my_sockaddr = &sock;
   if(port < 1000 || port > 65535){
-    my_puts("Warn: Given port out of range\n");
+    my_puts("Error: Given port out of range\n");
     exit(0);
   }
   res = inet_pton(AF_INET, IP, &ip);

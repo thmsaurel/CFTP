@@ -43,7 +43,7 @@ int lauch_ftp_client(char * ip, char *login, int mode);
  * Default ports: 20: Data
  *                21: Commands
  *
- * param:    int portData, 
+ * param:    int portData, int mode
  * return:   int 0 if it success
  *           Instead, the function returns:
  *           -1 : Can't open socket 
